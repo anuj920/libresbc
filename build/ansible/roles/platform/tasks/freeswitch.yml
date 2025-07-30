@@ -33,6 +33,21 @@
     pkg: freeswitch
     state: build-dep
 
+- name: Check if freeswitch is a git repo
+  stat:
+    path: /usr/local/src/freeswitch/.git
+  register: freeswitch_is_git
+
+- name: Discard all local changes in freeswitch repo
+  shell: |
+    git reset --hard
+    git clean -fd
+    git checkout -- .
+  args:
+    chdir: /usr/local/src/freeswitch
+    executable: /bin/bash
+  when: freeswitch_is_git.stat.exists
+
 - name: Git clone freeswith source code
   git:
     repo: https://github.com/hnimminh/freeswitch.git
@@ -40,6 +55,7 @@
     recursive: no
     clone: yes
     version: '{{libre_freeswitch_version}}'
+    force: true
 
 - name: copy freeswitch module file
   copy:
@@ -84,8 +100,17 @@
     - src: /usr/include/opencore-amrnb/interf_dec.h
       dst: /usr/local/src/freeswitch/src/mod/codecs/mod_amr/interf_dec.h
 
+- name: Patch CRYPTO_mem_ctrl for OpenSSL 3.x
+  replace:
+    path: /usr/local/src/freeswitch/src/switch_core_cert.c
+    regexp: '^(\s*)CRYPTO_mem_ctrl\(CRYPTO_MEM_CHECK_ON\);'
+    replace: |
+      #if OPENSSL_VERSION_NUMBER < 0x30000000L
+      \1CRYPTO_mem_ctrl(CRYPTO_MEM_CHECK_ON);
+      #endif
+
 - name: build freeswitch
-  shell: ./bootstrap.sh -j && ./configure -C --prefix=/usr/local --with-rundir=/run/freeswitch --with-logfiledir=/var/log/freeswitch/ --enable-64 --with-openssl && make && make install
+  shell: sed -i 's/-Werror//g' configure.ac && export CFLAGS="-Wno-error=deprecated-declarations -Wno-error=implicit-function-declaration" && ./bootstrap.sh -j && ./configure -C --prefix=/usr/local --with-rundir=/run/freeswitch --with-logfiledir=/var/log/freeswitch/ --enable-64 --with-openssl && make && make install
   args:
     executable: /bin/bash
     chdir: /usr/local/src/freeswitch
