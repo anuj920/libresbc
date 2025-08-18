@@ -1,0 +1,6 @@
+{
+  "name": "capacity_default",
+  "desc": "Default capacity class for sip.unpod.tel",
+  "cps": 10,
+  "concurentcalls": 2000
+}

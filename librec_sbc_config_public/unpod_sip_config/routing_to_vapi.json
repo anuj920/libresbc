@@ -1,0 +1,10 @@
+{
+  "name": "routing_to_vapi",
+  "desc": "Routing table for PBX vapi calls",
+  "action": "route",
+  "routes": {
+    "primary": "outbound_vapi",
+    "secondary": "outbound_vapi",
+    "load": 0
+  }
+}

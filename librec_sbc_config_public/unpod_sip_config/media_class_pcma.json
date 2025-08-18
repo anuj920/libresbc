@@ -1,0 +1,12 @@
+{
+  "name": "default",
+  "desc": "default",
+  "codecs": [
+      "PCMA",
+      "PCMU",
+      "OPUS",
+      "G729",
+      "AMR-WB",
+      "GSM"
+  ]
+}

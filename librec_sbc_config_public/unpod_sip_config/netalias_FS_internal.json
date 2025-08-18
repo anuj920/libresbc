@@ -1,0 +1,11 @@
+{
+  "name": "netalias_internal",
+  "desc": "Internal network alias for eth0",
+  "addresses": [
+    {
+      "member": "libresbc-unpod",
+      "listen": "10.47.0.8",
+      "advertise": "10.47.0.8"
+    }
+  ]
+}

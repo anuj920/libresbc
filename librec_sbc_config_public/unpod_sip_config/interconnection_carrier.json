@@ -1,0 +1,27 @@
+{
+  "name": "interconnection_carrier",
+  "desc": "Outbound interconnection to carrier 159.65.154.134",
+  "sipprofile": "sipprofile_internal",
+  "distribution": "round_robin",
+  "gateways": [
+    {
+      "name": "gateway_carrier",
+      "weight": 1
+    }
+  ],
+  "rtpaddrs": [
+    "10.47.0.8"
+  ],
+  "media_class": "default",
+  "capacity_class": "capacity_default",
+  "translation_classes": [],
+  "manipulation_classes": [],
+  "privacy": [
+    "auto"
+  ],
+  "cid_type": "auto",
+  "nodes": [
+    "_ALL_"
+  ],
+  "enable": true
+}

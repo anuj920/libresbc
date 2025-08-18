@@ -1,0 +1,11 @@
+{
+  "name": "netalias_loopback",
+  "desc": "Loopback network alias for internal routing",
+  "addresses": [
+    {
+      "member": "libresbc-unpod",
+      "listen": "127.0.0.1",
+      "advertise": "127.0.0.1"
+    }
+  ]
+}

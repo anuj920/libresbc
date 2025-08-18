@@ -1,0 +1,13 @@
+{
+  "name": "routing_to_carrier",
+  "desc": "Routing table for carrier calls",
+  "action": "route",
+  "routes": {
+    "primary": "interconnection_carrier",
+    "secondary": "interconnection_carrier",
+    "load": 0
+  },
+  "variables": [
+    "carrier_route_var"
+  ]
+}

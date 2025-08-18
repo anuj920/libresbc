@@ -1,0 +1,11 @@
+{
+  "name": "netaliasexternal159",
+  "desc": "External network alias for sip.unpod.tel public IP",
+  "addresses": [
+    {
+      "member": "libresbc-unpod",
+      "listen": "159.65.154.134",
+      "advertise": "159.65.154.134"
+    }
+  ]
+}

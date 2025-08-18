@@ -1,0 +1,32 @@
+{
+  "name": "access_unpod_sip",
+  "desc": "Access service for sip.unpod.tel",
+  "server_header": "LibreSBC Unpod",
+  "transports": [
+    "udp",
+    "tcp"
+  ],
+  "sip_address": "netalias_external",
+  "antiflooding": {
+    "sampling": 2,
+    "density": 20,
+    "window": 600,
+    "threshold": 10,
+    "bantime": 600
+  },
+  "authfailure": {
+    "window": 600,
+    "threshold": 10,
+    "bantime": 900
+  },
+  "attackavoid": {
+    "window": 18000,
+    "threshold": 5,
+    "bantime": 86400
+  },
+  "blackips": [],
+  "whiteips": [],
+  "domains": [
+    "sip.unpod.tel"
+  ]
+}

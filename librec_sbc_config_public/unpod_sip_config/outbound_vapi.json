@@ -1,0 +1,31 @@
+{
+  "name": "outbound_vapi",
+  "desc": "Outbound interconnection to PBX vapi 44.229.228.186",
+  "sipprofile": "sipprofile_internal",
+  "distribution": "round_robin",
+  "sipaddrs": [
+      "44.229.228.186/32"
+  ],
+  "rtpaddrs": [
+      "44.229.228.186/32"
+  ],
+  "media_class": "default",
+  "capacity_class": "capacity_default",
+  "translation_classes": [],
+  "manipulation_classes": [],
+  "privacy": [
+      "auto"
+  ],
+  "cid_type": "auto",
+  "nofailover_sip_codes": [],
+  "nodes": [
+      "_ALL_"
+  ],
+  "enable": true,
+  "gateways": [
+      {
+          "name": "gateway_vapi",
+          "weight": 1
+      }
+  ]
+}

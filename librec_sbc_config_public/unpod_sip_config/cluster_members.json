@@ -1,0 +1,10 @@
+{
+  "name": "cluster_members",
+  "members": [
+    "sbc-gateway"
+  ],
+  "rtp_start_port": 10000,
+  "rtp_end_port": 60000,
+  "max_concurrent_calls": 5000,
+  "max_calls_per_second": 10
+}
