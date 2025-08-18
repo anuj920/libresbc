@@ -12,7 +12,7 @@
     - role: platform
     - role: libre
     - role: nginx
-    - role: nftables
-      tags: [platform, libre, firewall]
+    # - role: nftables
+    #   tags: [platform, libre, firewall]
     - role: captagent
 
